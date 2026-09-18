@@ -1,0 +1,6 @@
+{
+  "name": "NekoChat AI",
+  "description": "Aplicativo mobile-first de conversa e roleplay com personagens virtuais de inteligência artificial e estética anime.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
