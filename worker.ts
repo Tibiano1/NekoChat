@@ -27,6 +27,8 @@ export interface Env {
 
   // Secret environment variables (configured via Cloudflare Secrets / Dashboard)
   GEMINI_API_KEY?: string;
+  Nekochat_Api_Key?: string;
+  NEKOCHAT_API_KEY?: string;
   AI_MODEL?: string;
 
   // Architecture prepared for future Cloudflare D1 database:
@@ -532,7 +534,13 @@ ${modeInstructions[conv.mode] || modeInstructions.normal}
 }`;
 
       // Gemini Calling via native fetch (Zero Node dependencies)
-      const apiKey = env.GEMINI_API_KEY || (typeof process !== 'undefined' ? process.env.GEMINI_API_KEY : '');
+      const apiKey =
+        env.GEMINI_API_KEY ||
+        env.Nekochat_Api_Key ||
+        env.NEKOCHAT_API_KEY ||
+        (typeof process !== 'undefined'
+          ? process.env.GEMINI_API_KEY || process.env.Nekochat_Api_Key || process.env.NEKOCHAT_API_KEY
+          : '');
       const aiModel = env.AI_MODEL || (typeof process !== 'undefined' ? process.env.AI_MODEL : '') || DEFAULT_AI_MODEL;
 
       let replyText = '';

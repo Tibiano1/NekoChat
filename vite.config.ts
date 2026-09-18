@@ -47,6 +47,8 @@ function cloudflareWorkerDevPlugin(): Plugin {
 
           const env = {
             GEMINI_API_KEY: process.env.GEMINI_API_KEY,
+            Nekochat_Api_Key: process.env.Nekochat_Api_Key,
+            NEKOCHAT_API_KEY: process.env.NEKOCHAT_API_KEY,
             AI_MODEL: process.env.AI_MODEL,
           };
 
